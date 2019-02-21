@@ -2,23 +2,22 @@
 #include "Test_Segment.h"
 #include "effects/Blinking_2D.h"
 #include "effects/Static_2D.h"
-#include "Sequence.h"
 #include "Player.h"
 
 #include <iostream>
 
 TestStrip strip1(16);
 TestSegment segment1(strip1, 4, 4);
-Sequence seq;
+
+Sequence & sequence1 =
+    Player::newSequence()
+    .first(new Blinking2D(segment1, 10, 0x000001, 2))
+    .next(new Static2D(segment1, 5, 0x00007))
+    .loopToFirst();
 
 void setup()
 {
-    strip1.begin();    
-    seq.first(new Blinking2D(segment1, 0x1, 1, 10)).next(new Static2D(segment1, 5, 7)).loopToFirst();
-
-    Player::add(&seq);
-
-    seq.play();
+    sequence1.play();
 }
 
 void loop()

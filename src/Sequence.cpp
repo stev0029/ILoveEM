@@ -16,14 +16,16 @@ Sequence & Sequence::next(Effect *effect)
     return *this;
 }
 
-void Sequence::loopTo(Effect *effect)
+Sequence & Sequence::loopTo(Effect *effect)
 {
     getLastPtr()->next = effect;
+    return *this;
 }
 
-void Sequence::loopToFirst()
+Sequence & Sequence::loopToFirst()
 {
     getLastPtr()->next = firstPtr;
+    return *this;
 }
 
 void Sequence::update()

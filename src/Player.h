@@ -9,6 +9,7 @@
 class Player
 {
 public:
+    static Sequence & newSequence();
     static void add(Sequence *sequence);
     static void update();
 

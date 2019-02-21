@@ -10,8 +10,8 @@ public:
     // For constructing the sequence
     Sequence & first(Effect *effect);
     Sequence & next(Effect *effect);
-    void loopTo(Effect *effect);
-    void loopToFirst();
+    Sequence & loopTo(Effect *effect);
+    Sequence & loopToFirst();
 
     bool is_stop = true;
     bool is_finish = false;
