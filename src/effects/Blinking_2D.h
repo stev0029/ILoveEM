@@ -6,7 +6,7 @@
 class Blinking2D : public Effect2D
 {
 public:
-    Blinking2D(Segment2D &segment, uint32_t color, uint16_t period, uint16_t duration);
+    Blinking2D(Segment2D &segment, uint16_t duration, uint32_t color, uint16_t period);
 
 private:
     uint32_t color;
