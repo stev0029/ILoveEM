@@ -81,7 +81,7 @@ Effect * Sequence::getPtr(uint8_t index)
 {
     Effect * ptr = firstPtr;
     for (uint8_t i = 0; i < index; i++)
-        ptr = firstPtr->next;
+        ptr = ptr->next;
     
     return ptr;
 }

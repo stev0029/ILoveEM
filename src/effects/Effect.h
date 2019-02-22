@@ -16,7 +16,6 @@ public:
 protected:
     Effect(uint16_t duration);
 
-
     uint16_t duration;
     uint16_t time = 0;
 };
