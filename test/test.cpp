@@ -13,10 +13,12 @@ Sequence & sequence1 =
     Player::newSequence()
     .first(new Blinking2D(segment1, 10, 0x000001, 2))
     .next(new Static2D(segment1, 5, 0x00007))
+    .next(new Blinking2D(segment1, 10, 0x000003, 1))
     .loopToFirst();
 
 void setup()
 {
+    strip1.begin();
     sequence1.play();
 }
 

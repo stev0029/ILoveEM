@@ -25,21 +25,16 @@ public:
     Sequence & next(Effect *effect);
 
     /**
-     * Sets the next reference of the last element
-     * without incrementing the length.
+     * Sets the next reference of the last element to
+     * an existing element in list.
      */
-    Sequence & loopTo(Effect *effect);
+    Sequence & loopTo(uint8_t index);
 
     /**
      * Sets the next reference of the last element
      * back to the first element.
      */
     Sequence & loopToFirst();
-
-    bool is_stop = true;
-    bool is_finish = false;
-    Effect *getPtr(uint8_t index);
-    Effect *getLastPtr();
 
     // To be called by Player every loop
     void update();
@@ -51,9 +46,15 @@ public:
     void reset();
 
 private:
+    bool is_stop = true;
+    bool is_finish = false;
+
     Effect *firstPtr;
     Effect *currentPtr;
     uint8_t length;
+
+    Effect *getPtr(uint8_t index);
+    Effect *getLastPtr();
 };
 
 #endif

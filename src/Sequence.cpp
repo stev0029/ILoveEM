@@ -16,9 +16,9 @@ Sequence & Sequence::next(Effect *effect)
     return *this;
 }
 
-Sequence & Sequence::loopTo(Effect *effect)
+Sequence & Sequence::loopTo(uint8_t index)
 {
-    getLastPtr()->next = effect;
+    getLastPtr()->next = getPtr(index);
     return *this;
 }
 
@@ -30,17 +30,18 @@ Sequence & Sequence::loopToFirst()
 
 void Sequence::update()
 {
+    // Indicate Sequence has finished, if currentPtr doesn't point anywhere
     if (currentPtr == nullptr)
-    {
         is_finish = true;
-        is_stop = true;
-        return;
-    }
-    else
-    {
-        currentPtr->update();
-    }
 
+    // Don't continue if Sequence is finished or stopped
+    if (is_finish || is_stop)
+        return;
+
+    // Update Effect
+    currentPtr->update();
+
+    // Sets state for next iteration
     if (currentPtr->is_finish())
     {
         // Auto reset Effect after finish

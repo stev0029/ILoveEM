@@ -21,9 +21,6 @@ void Player::update()
 {
     for (int i = 0; i < length; i++)
     {
-        Sequence & sequence = *sequences[i];
-        
-        if (!sequence.is_stop && !sequence.is_finish)
-            sequence.update();
+        sequences[i]->update();
     }
 }

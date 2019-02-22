@@ -9,7 +9,7 @@
 class Strip
 {
 public:
-    // Function to set all leds to off
+    // Function to initialize before running
     virtual void begin() = 0;
 
     // Function to send data stored to actually change the led colors
