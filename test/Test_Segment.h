@@ -1,9 +1,7 @@
 #ifndef TEST_SEGMENT_H
 #define TEST_SEGMENT_H
 
-#include <cstdint>
 #include "segments/Single_2D.h"
-#include "strips/Strip.h"
 
 class TestSegment : public Single2D
 {
